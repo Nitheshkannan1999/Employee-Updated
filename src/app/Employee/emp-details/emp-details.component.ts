@@ -98,7 +98,6 @@ export class EmpDetailsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose=true;
     dialogConfig.width = '40%';
-    
     this.dialog.open(DialogComponent);
     this.datapassService.confirmDeletion.subscribe(data  => {
       
