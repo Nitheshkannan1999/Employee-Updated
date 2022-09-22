@@ -1,0 +1,88 @@
+<mat-toolbar class="head-menu">
+    <span>Empolyee Details</span>
+</mat-toolbar>
+
+<mat-form-field appearance="standard">
+    <button  mat-raised-button (click)="onCreate()" class="btn-create"><mat-icon>add</mat-icon>Create New</button><br><br>
+    <input  matInput (keyup)="applyFilter($event)" placeholder="Search for Name" #input>
+</mat-form-field>
+  
+<div class="mat-elevation-z5">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- userId Column -->
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> userId </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.userId}} </mat-cell>
+    </ng-container>
+
+    <!-- jobTitleName Column -->
+    <ng-container matColumnDef="jobTitleName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> jobTitleName </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.jobTitleName}}</mat-cell>
+    </ng-container>
+
+    <!-- firstName Column -->
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> firstName </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+    </ng-container>
+
+    <!-- lastName Column -->
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> lastName </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
+    </ng-container>
+    
+    <!-- FullName Column -->
+    <ng-container matColumnDef="FullName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> FullName </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.FullName}} </mat-cell>
+    </ng-container>
+
+    <!-- employeeCode Column -->
+    <ng-container matColumnDef="employeeCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> employeeCode </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.employeeCode}} </mat-cell>
+    </ng-container>
+
+    <!-- region Column -->
+    <ng-container matColumnDef="region">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> region </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.region}} </mat-cell>
+    </ng-container>
+
+    <!-- phoneNumber Column -->
+    <ng-container matColumnDef="phoneNumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header > phoneNumber </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.phoneNumber}} </mat-cell>
+    </ng-container>
+
+    <!-- emailAddress Column -->
+    <ng-container matColumnDef="emailAddress">
+      <mat-header-cell *matHeaderCellDef mat-sort-header colspan="2"> emailAddress </mat-header-cell>
+      <mat-cell *matCellDef="let row" colspan="2"> {{row.emailAddress}} </mat-cell>
+    </ng-container>
+
+    <!-- Edit and Delete option  -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="onEdit()"><mat-icon class="edit-btn">edit</mat-icon></button>
+        <button mat-icon-button (click)="onDelete(row)"><mat-icon class="delete-btn">delete</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <!-- Row shown when there is no matching data. -->
+    <mat-header-row class="mat-row" *matNoDataRow>
+      <mat-cell class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</mat-cell>
+    </mat-header-row>
+  </mat-table>
+  
+      <mat-paginator  [pageSizeOptions]="[5]" aria-label="Select page of users"></mat-paginator>
+</div> 
+
+

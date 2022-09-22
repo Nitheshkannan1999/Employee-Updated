@@ -1,0 +1,33 @@
+
+.top-menu{
+    background-color: aqua;
+    background-image:linear-gradient(315deg,#5da7b4 0%,#d17884 76%);
+}
+
+.top-menu b{
+    font-size: 15px;
+    font-weight: 700;
+    font-family:'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    color: white;
+}
+.btn-dialog-close {
+   float: right;
+   background: none;
+   border: #458792;
+   color: white;
+}
+
+.btn-dialog-close:hover{
+
+    color: red;
+}
+
+.card-body{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    color: red;
+}
+.delete{
+    display:none;
+  }

@@ -1,0 +1,98 @@
+<mat-dialog-content class="mat-typography">          
+    <div class="card">
+        <div class="card-header py-1 top-menu">
+            <b>Employee form</b>
+            <span class="example-spacer"></span>
+            <button class="btn-dialog-close" mat-stroked-button mat-dialog-close ><mat-icon>cancel</mat-icon></button>
+            
+        </div>
+
+        <div class="card-body mx-5 card-container">
+            <form action="" [formGroup]="Employeeform" >
+                <div class="row" >
+                    <div class="col-10">
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="userId">User Id <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('userId')?.invalid"  type="text" class="form-control" id="empno" formControlName = "userId">
+                                    <span *ngIf="Employeeform.get('userId')?.invalid">Fill the User Id</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="jobTitle">JobTitleName <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('jobTitleName')?.invalid" type="text" class="form-control" id="jobTitleName" formControlName = "jobTitleName">
+                                    <span *ngIf="Employeeform.get('jobTitleName')?.invalid" >Fill the JobTitleName</span>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">FirstName <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('firstName')?.invalid" type="text" class="form-control" id="firstName" formControlName = "firstName">
+                                    <span *ngIf="Employeeform.get('firstName')?.invalid" >Fill the FirstName </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">LastName <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('lastName')?.invalid" type="text" class="form-control" id="lastName" formControlName = "lastName">
+                                    <span *ngIf="Employeeform.get('lastName')?.invalid" >Fill the LastName </span>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="FullName">FullName <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('FullName')?.invalid" type="text" class="form-control" id="FullName" formControlName = "FullName">
+                                    <span *ngIf="Employeeform.get('FullName')?.invalid" >Fill the FullName </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="employeeCode">EmployeeCode <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('employeeCode')?.invalid" type="text" maxlength="4" class="form-control" id="employeeCode" formControlName = "employeeCode">
+                                    <span *ngIf="Employeeform.get('employeeCode')?.invalid" >Fill the EmployeeCode </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="region">Region <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('region')?.invalid" type="text" maxlength="5" class="form-control" id="region" formControlName = "region">
+                                    <span *ngIf="Employeeform.get('region')?.invalid" >Fill the Region </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phoneNumber">PhoneNumber <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('phoneNumber')?.invalid"  type="binary" maxlength="10" class="form-control" id="phoneNumber" formControlName = "phoneNumber">
+                                    <span *ngIf="Employeeform.get('phoneNumber')?.invalid" >Fill the PhoneNumber </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="emailAddress">EmailAddress <span>*</span> </label>
+                                    <input [class.is-invalid] = "Employeeform.get('emailAddress')?.invalid" type="email" class="form-control" id="emailAddress" formControlName = "emailAddress">
+                                    <span *ngIf="Employeeform.get('emailAddress')?.invalid" >Fill the EmailAddress</span>
+                                </div>
+                            </div>                                                                              
+                        </div>
+                    </div>                                              
+                </div>                                   
+            </form>                   
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onclear()" class="btn btn-danger" >clear</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="submitvalue()" class="btn btn-success" >Add</button>
+</mat-dialog-actions>
