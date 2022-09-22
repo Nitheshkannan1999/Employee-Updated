@@ -52,6 +52,13 @@ export class EmpDetailsComponent implements OnInit {
       this.dataSource.sort = this.sort;
   }
 
+
+  ngOnDestroy()
+  {
+    console.log("in destrouyyy");
+    this.datapassService.confirmAdd.unsubscribe();
+    this.datapassService.confirmDeletion.unsubscribe();
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -69,7 +76,7 @@ export class EmpDetailsComponent implements OnInit {
     this.dialog.open(AddEmployeeComponent,dialogConfig);
 
     this.datapassService.confirmAdd.subscribe((data) => {
-          console.log("enter in subscribe");
+          console.log("enter in subscribe",Math.random());
          this.updateData(data)
       
     })
@@ -94,34 +101,40 @@ export class EmpDetailsComponent implements OnInit {
   
   
   onDelete(param : empdetails){
-    // console.log("enter");
+     console.log("enterrrrr");
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose=true;
     dialogConfig.width = '40%';
     this.dialog.open(DialogComponent);
+
+    
     this.datapassService.confirmDeletion.subscribe(data  => {
-      
-      console.log(data,"data");
-      console.log("enterer");
+      console.log(data,Math.random());
       if(data)
       {
         this.deletedata(param);
       }
     })
+
+    // this.datapassService.confirmDeletion.unsubscribe();
     
   }
 
   deletedata(param : empdetails){
+   
+   
     for(let i=0;i<this.tablesource.length;i++){
       if(param.employeeCode == this.tablesource[i].employeeCode)
       {
         this.tablesource.splice(i,1);
         break;
       }
+    }
+      
       this.dataSource= new MatTableDataSource(this.tablesource);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort; 
-    }    
+        
   }
 
 }

@@ -15,11 +15,13 @@ export class DialogComponent implements OnInit {
 
   confirmDeletion()
   {
+    console.log("confirm delete");
     this.datapassService.confirmDeletion.next(true);
   }
 
   cancelDeletion()
   {
+    console.log("not confirm delete");
     this.datapassService.confirmDeletion.next(false);
   }
 }
