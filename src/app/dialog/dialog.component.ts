@@ -13,6 +13,11 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy()
+  {
+    // this.datapassService.confirmDeletion.unsubscribe()
+  }
+
   confirmDeletion()
   {
     console.log("confirm delete");

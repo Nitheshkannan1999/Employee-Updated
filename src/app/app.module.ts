@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,13 +12,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AddEmployeeComponent } from './Employee/add-employee/add-employee.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DatapassService } from './datapass.service';
+import { LoginComponent } from './login/login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpDetailsComponent,
     AddEmployeeComponent,
-    DialogComponent
+    DialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +31,12 @@ import { DatapassService } from './datapass.service';
     HttpClientModule,
     BrowserAnimationsModule,  
     MaterialModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    
   ],
   providers: [DatapassService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

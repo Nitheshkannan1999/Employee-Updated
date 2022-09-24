@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { take } from 'rxjs';
 import { DatapassService } from 'src/app/datapass.service';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 // import { DialogComponent } from 'src/app/dialog/dialog.component';
@@ -31,6 +32,7 @@ export class EmpDetailsComponent implements OnInit {
   showdelete!:boolean;
   tablesource!: empdetails[];
 
+
   constructor(private service :ServiceService,
               public  dialog :MatDialog,
               public datapassService : DatapassService) { } 
@@ -38,6 +40,8 @@ export class EmpDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+    
     this.service.employee().subscribe((data:empdetails[])=>{
       this.tablesource=data
       this.dataSource= new MatTableDataSource(this.tablesource);
@@ -53,12 +57,7 @@ export class EmpDetailsComponent implements OnInit {
   }
 
 
-  ngOnDestroy()
-  {
-    console.log("in destrouyyy");
-    this.datapassService.confirmAdd.unsubscribe();
-    this.datapassService.confirmDeletion.unsubscribe();
-  }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -75,7 +74,7 @@ export class EmpDetailsComponent implements OnInit {
     dialogConfig.width="70%";
     this.dialog.open(AddEmployeeComponent,dialogConfig);
 
-    this.datapassService.confirmAdd.subscribe((data) => {
+    this.datapassService.confirmAdd.pipe(take(1)).subscribe((data) => {
           console.log("enter in subscribe",Math.random());
          this.updateData(data)
       
@@ -108,7 +107,7 @@ export class EmpDetailsComponent implements OnInit {
     this.dialog.open(DialogComponent);
 
     
-    this.datapassService.confirmDeletion.subscribe(data  => {
+    this.datapassService.confirmDeletion.pipe(take(1)).subscribe((data:Boolean) => {
       console.log(data,Math.random());
       if(data)
       {

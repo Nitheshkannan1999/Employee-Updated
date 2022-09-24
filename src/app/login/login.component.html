@@ -1,0 +1,29 @@
+<div class="login-container">
+    <mat-card class="example-card">
+        <mat-card-header class="card-header">
+            <mat-card-title>Login Form</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+            <form class="example-form" [formGroup]="loginform">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>User Name</mat-label>
+                  <input matInput type="text" formControlName="username">
+                  <mat-error *ngIf="loginform.get('username')?.hasError('required')">Plese Enter User Name</mat-error>
+                  <mat-error *ngIf="loginform.get('username')?.hasError('validuser')">Plese Enter Vaild Password</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" formControlName="password">
+                  <mat-error *ngIf="loginform.get('password')?.hasError('required')">Plese Enter Password</mat-error>
+                  <mat-error *ngIf="loginform.get('password')?.hasError('validpass')">Plese Enter Vaild Password</mat-error>
+                  </mat-form-field>
+            </form>
+  
+            <mat-card-actions class="card-action">
+                <button mat-raised-button [disabled]="loginform.get('username')?.invalid || loginform.get('password')?.invalid " (click) = "validatePassAndId()" >Login</button>
+            </mat-card-actions>
+        </mat-card-content>        
+      </mat-card> 
+    </div>

@@ -1,0 +1,71 @@
+.login-container{    
+    /* background: url(assets\dashboards.jpg); */
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-card{
+    max-width: 400px;
+    height: 400px;
+    text-align: center;
+    background:rgba(252, 248, 248, 0.6);
+}
+
+.card-header{
+    text-align: center;
+    padding: 20px;
+    background-color:(rgba(216, 191, 216, 0.589));
+}
+
+.card-header mat-card-title{
+    font-size: 25px;
+    color: rgb(16, 34, 134);
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0px 10px;
+}
+  
+.example-full-width {
+    width: 100%;
+    padding: 10px;
+}
+
+.example-full-width mat-label{
+    font-size: 15px;
+    color: blue;
+    font-weight: 900;
+}
+
+.example-full-width input{
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.card-action{
+    margin: 0px 10px;
+}
+
+.card-action button{
+    padding: 5px;
+    width: 30%;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background-color:rgba(216, 191, 216, 0.589);
+    color: darkslateblue;
+}
+
+mat-error{
+    font-size: 13px;
+    font-weight: 700;
+} 
