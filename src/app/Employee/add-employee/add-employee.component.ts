@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { take } from 'rxjs';
 import { DatapassService } from 'src/app/datapass.service';
 import { ServiceService } from 'src/app/Service/service.service';
 import { empdetails } from '../empdetails';
@@ -30,13 +31,21 @@ emailAddress  : ['',[Validators.email]],
 
 ngOnInit(): void {
 
-
+  this.editvalue();
 }
 
 submitvalue(){
   let datasample = this.Employeeform.value  as empdetails;
    
   this.datapassService.confirmAdd.next(datasample);
+}
+
+editvalue(){
+  this.datapassService.Editvalue.pipe(take(1)).subscribe((data) => {
+    console.log("enter in subscribe",Math.random());
+   this.Employeeform.setValue(data);
+   console.log(data)
+  })
 }
 
 onclear(){
