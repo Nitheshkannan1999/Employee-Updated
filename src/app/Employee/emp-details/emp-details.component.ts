@@ -90,12 +90,18 @@ export class EmpDetailsComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  onEdit(){
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose=true;
-    // dialogConfig.autoFocus=true
-    // dialogConfig.width="70%";
-    // this.dialog.open(EditEmpComponent);
+  onEdit(row:any){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose=true;
+    dialogConfig.autoFocus=true
+    dialogConfig.width="70%";
+    this.dialog.open(AddEmployeeComponent,dialogConfig);
+
+    let editdata = row as empdetails;
+   
+    this.datapassService.Editvalue.next(editdata);
+
+    console.log(editdata)
   }
   
   

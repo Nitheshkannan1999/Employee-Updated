@@ -11,6 +11,7 @@ export class DatapassService {
   public confirmDeletion: Subject<boolean> = new Subject();
   public confirmAdd : Subject<empdetails> = new Subject();
   public loginFlag : Subject<boolean> = new Subject();
+  public Editvalue : Subject<empdetails> =new Subject();
 
   constructor() { }
 }
